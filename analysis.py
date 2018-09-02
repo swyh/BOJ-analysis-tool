@@ -24,27 +24,31 @@ def calculate_percent(userID):
 
         count = 0
         percent = 0
-        percent_distribution = [0 for i in range(10)]
+        percent_distribution = [0 for i in range(11)]
 
         seccess_div = bs.select(".panel-body")[0]
 
-        for container in seccess_div.select(".problem_number a"):  # container별로 분류
+        for container in seccess_div.select(".problem_number a"):  # container는 문제번호
             percent_unit = db.select(container.text)
-            percent += float(percent_unit[0:6])
+            percent_unit = float(percent_unit.split("%")[0])
+            percent += percent_unit
             count += 1
 
-            percent_distribution[int(percent_unit[0:2])//10] += 1
-
+            percent_distribution[int(percent_unit)//10] += 1
 
         awnser = percent / count
 
         print("{0}님은 {1}개 문제를 풀었고, 해결한 문제의 평균 정답 비율은 {2:.2f}% 입니다.".format(id, count, awnser))
         print("정답 비율 분포")
-        for i in range(10):
-            print("{0:>2d} ~{1:>3d}% : {2:>3d}개".format(i*10, (i+1)*10,percent_distribution[i]), end="")
+        for i in range(11):
+            if i < 10:
+                print("{0:>2d} ~{1:>3d}% : {2:>3d}개".format(i*10, (i+1)*10-1,percent_distribution[i]), end="")
+            else:
+                print("{0:>7d}% : {2:>3d}개".format(i * 10, (i + 1) * 10 - 1, percent_distribution[i]), end="")
             for j in range(round(percent_distribution[i]/10)):
                 print("■", end ="")
             print()
 
         list.append([awnser, count, id])
+
     return list
