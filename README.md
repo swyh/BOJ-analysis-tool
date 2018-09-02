@@ -1,15 +1,15 @@
 # BOJ-analysis-tool
 백준 유저가 해결한 문제들의 평균 정답 비율을 계산해준다.
 <p align="center">
-    <img src="./img2.jpg", width="400">
-    <img src="./img.jpg", width="400">
+    <img src="./img/img2.jpg", width="400">
+    <img src="./img/img.jpg", width="400">
 </p>
 
 - 당신이 푼 문제의 정답 비율의 분포도를 나타내 준다.
 - 친구들과 랭킹을 매길 수 있다!
 
 ### 사용법
-![img3](./img3.jpg)
+![img3](./img/img3.jpg)
 - main.py : 단지 분석하고자 하는 사용자 아이디를 넣으면 된다.
 
 ### 이외 함수설명
