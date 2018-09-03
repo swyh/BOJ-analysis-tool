@@ -10,7 +10,7 @@
 
 ### 사용법
 ![img3](./img/img3.jpg)
-- main.py : 단지 분석하고자 하는 아이디 넣으면 된다.
+- main.py : 단지 분석하고자 하는 아이디들을 넣으면 된다.
 
 ### 이외 함수설명
 - crawling.py : beautifulsoup을 이용하여 백준의 문제번호와 정답율을 list로 반환
